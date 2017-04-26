@@ -1,0 +1,64 @@
+$(document).ready(function () {
+        $("#formcomment").submit(function(event){
+        var text = $('#comment').val();
+        var nametext = $('#name').val();
+        var formNm = $("#formcomment");
+        $.date = function(){
+                return new Date().toLocaleTimeString();
+        };
+        var elements = {
+        'border':'2px solid red'
+        }
+        if (text.length == 0 && nametext.length == 0) {
+                $('#comment , #name').fadeIn(1000).css(elements);
+                $('.errortext').fadeIn(1000);
+                setTimeout(function (){
+                $('#comment , #name').attr('style' , '');
+                $('.errortext').fadeOut(1000);
+                        }, 2000)
+                }
+        else if (nametext.length == 0 && text.length > 0) {
+                $('#name').fadeIn(1000).css(elements);
+                $('.errortext1').fadeIn(1000);
+                setTimeout(function (){
+                $('#name').attr('style' , '');
+                $('.errortext1').fadeOut(1000);
+                        }, 2000)
+                }
+        else if (nametext.length > 0 && text.length == 0) {
+                $('#comment').fadeIn(1000).css(elements);
+                $('.errortext2').fadeIn(1000);
+                setTimeout(function (){
+                $('#comment').attr('style' , '');
+                $('.errortext2').fadeOut(1000);
+                        }, 2000)
+                }
+else if (text.length > 0 && nametext.length > 0){
+        $('#messageprint').fadeIn(500);
+        $.ajax({
+                type: "POST",
+                url: 'index.php',
+                data: formNm.serialize(),
+                success: function (data) {
+                //$("#placecomment").prepend("<p class='realtimecomment'><br>Сообщение отправлено в "+ $.date() + ": " + text + '<br>' + '<i>пользователь\u0020'  + nametext  +  '</i>'  +  "</p>");
+                $("#comment").val('');
+        }
+        });
+}
+});
+setInterval( function(){
+        $('.realtimecomment').load("index.php .realtimecomment");
+        $('#messageprint').fadeOut(1000);
+        }, 3000);
+
+//$(document).on("click" ,".namesend", function(event){
+//        var name = $(this).html()
+//        $('#name').val(name);   
+//})
+
+//$(document).on("click" , "#name" , function (){
+//        if ($('#name').attr('type') != null){
+//        $('#name').val('');
+//        }
+//})
+})

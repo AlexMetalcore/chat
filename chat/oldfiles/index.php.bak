@@ -1,0 +1,75 @@
+<html>
+<meta charset="utf-8">
+<title>Чатик</title>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/form.js"></script>
+<script type="text/javascript" src="js/clock.js"></script>
+</head>
+<body>
+<?php
+require_once ('commentdb.php');
+session_start();
+        $log = $_SESSION['login'];
+	$id = $_SESSION['id'];
+	$age = $_SESSION['age']; 
+        if (empty($log) && empty($id)) {
+                echo '<a href="login_add.php">Пожалуйста, авторизируйтесь</a>'.sleep(3);
+		header ("Location: login_add.php");
+        }
+        else {
+		function getage() {
+			include "commentdb.php";
+                        $userssql = $connect_db->query("SELECT *FROM users WHERE login='".$log."';");
+                        	while($row = $userssql -> fetch_array()){
+                                	echo $row['age'];
+                                }
+                }
+?>
+<i><span id="clock"></span></i>
+	<a class="logout" href="logout.php">Выйти  из чата</a>
+			<audio controls loop><source src="/mp3/Pantera - Mouth For War.mp3"></audio>
+	<form id="formcomment" onsubmit="return false">
+		<p style="margin: -10px 0; font-weight: bold; font-size: 25px;"><?php echo $log ?></p><br><!--<input type="text" name="name" id="name" value="<?php echo $log ?>"></p><br>-->
+		<textarea type="text" name="comment" id="comment" placeholder="Введите сообщение..."></textarea><br><br>	
+			<p class="errortext2">Напишите сообщение...</p>
+		<input type="submit" value="Отправить" id="send"></br>
+			<p id="textmessage">
+				<?php
+					setlocale(LC_TIME,  "ru_RU.UTF-8");
+					$str = strftime("%e  %B  %A");
+					//$str = mb_convert_case($str , MB_CASE_TITLE, "UTF-8");
+					$today = date("Y-m-d H:i:s");
+					$sql = "INSERT INTO `comments` (`name` , `comment` , `commenttime` , `day`) VALUES ('".$log."' , '".$comment."' , '$today' , '$str')";
+					if (isset($log) && isset($_POST["comment"]) == 'true' && !empty($log) && !empty($comment)) {
+						$result = $connect_db->query($sql);
+						$row_count = $result->nuw_rows;
+							if ($result === TRUE && !empty($log) && !empty($_POST["comment"])){
+								echo '<br>Сообщение отправлено пользователем '.$name.'';
+							}
+					}
+					else if (empty($log) && empty($comment) && isset($log) && isset($_POST["comment"]) == 'false'){
+						echo "Заполните поля!";
+					}
+				?>
+			</p>
+		<i><b class="chat">Чатик</b></i>
+			<div id="placecomment">
+				<p id="messageprint">Печатают сообщение...</p>
+					<p class="realtimecomment">
+			<?php
+				$commentsql = $connect_db->query("SELECT *FROM comments WHERE id ORDER BY id DESC;");
+        				while ($row = $commentsql -> fetch_array()) {
+        					echo '<br><br>Сообщение:&nbsp;'.$row["comment"].'<br><i>пользователь&nbsp;&nbsp;<!--<a href="#" class="namesend">--><b style="color: black;">' .$row["name"]. '</b></a></i><br><b>Дата и время:&nbsp;'.$row["day"]. '&nbsp;в&nbsp;' .$row["commenttime"]. '</b>';
+					}
+			?>
+					</p>
+			</div>
+	</form>
+</body>
+</html>
+<?php
+}
+?>
+
