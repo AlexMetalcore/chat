@@ -1,7 +1,7 @@
 <?php
 session_start();
-$user = "comment";
-$passworddb = "smartit13";
+$user = "user";
+$passworddb = "password";
 $db_name = "comment";
 $host = "localhost";
 
