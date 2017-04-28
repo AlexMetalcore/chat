@@ -4,7 +4,7 @@ $(document).ready(function () {
         var textval = $('#comment').val();
 	var text = $('#comment');
         var formNm = $("#formcomment");
-	var mess = $('#textmessage');
+	//var mess = $('#textmessage');
 	var printmess = $('#messageprint');
 	var error = $('.errortext2');
         $.date = function(){
@@ -29,22 +29,22 @@ $(document).ready(function () {
                 	url: 'message.php',
                 	data: formNm.serialize(),
                 	success: function (data) {
-				mess.fadeIn(500).html(data);
+				//mess.fadeIn(500).html(data);
                 		text.val('');
-				mess.css("display" , "block");
+				//mess.css("display" , "block");
         		}
         	});
 	}
 	setTimeout (function () {
-		mess.fadeOut(500);
-		printmess.fadeOut(1000);
-	}, 1000);
+		//mess.fadeOut(200);
+		printmess.fadeOut(300);
+	}, 500);
 }
 }).submit(function(event) {
         var textval = $('#comment').val();
         var text = $('#comment');
         var formNm = $("#formcomment");
-        var mess = $('#textmessage');
+        //var mess = $('#textmessage');
         var printmess = $('#messageprint');
         var error = $('.errortext2');
         $.date = function(){
@@ -68,16 +68,16 @@ $(document).ready(function () {
                         url: 'message.php',
                         data: formNm.serialize(),
                         success: function (data) {
-                                mess.fadeIn(500).html(data);
+                                //mess.fadeIn(500).html(data);
                                 text.val('');
-                                mess.css("display" , "block");
+                                //mess.css("display" , "block");
                         }
                 });
         }
         setTimeout (function () {
-                mess.fadeOut(500);
-                printmess.fadeOut(1000);
-        }, 1000);
+                //mess.fadeOut(200);
+                printmess.fadeOut(300);
+        }, 500);
 
 });	
 var realmess = $(".realtimecomment");
@@ -89,5 +89,5 @@ setInterval (function () {
                         realmess.html(html);
                     }
                 });
-        }, 3000);
+        }, 1000);
 })

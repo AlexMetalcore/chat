@@ -13,7 +13,7 @@
 		<form id="formlog" onsubmit="return false"> 
 			<label for="namelog">Ваше имя:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" maxlength="20" id="namelog" class="log" name="login"><br><br>
 			<label for="passlog">Ваш пароль:&nbsp;&nbsp;</label><input type="password" maxlength="20" id="passlog" class="log" name="password"><br><br>
-			<input type="submit" value="Войти" class="button"><a href="register_add.php" class="register">Регистрация</a>
+			<input type="submit" value="Войти" class="button btn"><a href="register_add.php" class="register">Регистрация</a>
 		</form>
 	<p class="attention">Заполните поля</p>
 	</div>

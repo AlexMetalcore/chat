@@ -6,18 +6,18 @@
 	/*background-image: url(http://7oom.ru/wp-content/uploads/foto-priroda-23.jpg);*/
 	background-image: url(../img/chat.jpg);
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: auto;
 }
 .login {
 	background-image: url(../img/chat.jpg);
 	 background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: auto;
 }
 .regadd {
 	/*background-image: url(http://i99.beon.ru/www.bestwall.com.ua/data/media/3/priroda_bwua_02.06.2012_019__1920x1200.jpg);*/
 	background-image: url(../img/register.jpg);
 	background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: auto;
 } 
 a {
         text-decoration: none;
@@ -26,10 +26,28 @@ a:hover {
         text-decoration: underline;
 }
 
+input.submit {
+	width: 120px;
+	height: 35px;
+	background-color: #1F752E;
+        border: none;
+        box-shadow: 1px 1px 1px 1px rgba(0 , 0 , 0 , 0.3);
+	cursor: pointer;
+	font-family: italic;
+        font-size: 16px;
+        border-radius: 2px;
+	color: white;
+}
+input.submit:hover {
+	background-color: #37B94D;
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
+}
 .attention {
 	display: none;
-    	top: 45px;
-   	position: relative;
+    	/*top: 45px;
+   	position: relative;*/
+	top: 175px;
+	position: absolute;
     	text-align: center;
     	font-size: 25px;
     	color: red;
@@ -39,7 +57,9 @@ a:hover {
 #echomessage {
 	color: red;
 }
-
+.message {
+	max-width: 300px;
+}
 .delete {
 	/*color: #21B5A7;*/
 	color: #F43E47;
@@ -63,6 +83,12 @@ a.logout {
 	font-size: 25px;
 	margin-right: 10px;
 	font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.comm {
+	max-width: 100%;
+	display: inline-block;
+	white-space: normal;
 }
 
 .realtimecomment {
@@ -193,12 +219,17 @@ audio:hover {
 }
 .button {
 	height: 35px;
-	width: 50%;
+	width: 200px;
 	background-color: #0D8715;
 	color: black;
 	font-size: 20px;
 	border-radius: 5px;
 	position: absolute;
+	border: none;
+}
+
+.btn {
+	width: 160px;
 }
 
 .button:hover {
@@ -206,11 +237,12 @@ audio:hover {
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
 	cursor: pointer;
 }
-	
+
+/*	
 #comment {
         margin: 10px;
         padding: 10px;
-        /*width: 300px;*/
+        /*width: 300px;
 	width: 50%;
         height: 200px;
         overflow: auto;
@@ -218,6 +250,19 @@ audio:hover {
 	border-radius: 10px;
 	box-shadow: 3px 3px 3px 3px rgba(0 , 0 , 0 , 0.5);
 	
+}*/
+
+#comment {
+	margin: 20px 45%;
+    	padding: 10px;
+    	width: 100%;
+    	height: 50px;
+    	overflow: auto;
+    	background-color: #FCEFCF;
+    	border-radius: 10px;
+    	box-shadow: 3px 3px 3px 3px rgba(0 , 0 , 0 , 0.5);
+	outline: none;
+	float: left;
 }
 
 #comment:hover {
@@ -238,7 +283,7 @@ audio:hover {
 #name:active {
         border: 1px solid #C6B210;
 }
-#send {
+/*#send {
         margin: 0 10px;
         position: relative;
         top: -15px;
@@ -250,23 +295,37 @@ audio:hover {
         background-color: #1F752E;
 	border: none;
 	box-shadow: 1px 1px 1px 1px rgba(0 , 0 , 0 , 0.3);
+}*/
+
+#send {
+    width: 120px;
+    height: 40px;
+    font-family: italic;
+    font-size: 20px;
+    border-radius: 2px;
+    background-color: #1F752E;
+    border: none;
+    box-shadow: 0px 1px 1px 1px rgba(0 , 0 , 0 , 0.3);
+    float: right;
+
 }
 #send:hover {
         cursor: pointer;
         background-color: #37B94D;
         box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
 }
+/*
 #placecomment {
-        /*width: 500px;*/
+        /*width: 500px;
 	width: 72%;
         border: none;
         height: 400px;
         overflow: auto;
         margin: 10px;
-        /*margin: 65px 10px;*/
+        /*margin: 65px 10px;
         padding: 0 10px;
         left: 90%;
-        /*left: 50%;*/
+        /*left: 50%;
         top: 0;
         position: absolute;
         text-align: left;
@@ -275,11 +334,33 @@ audio:hover {
         font-size: 16px;
         color: black;
         float: right;
-        /*background-color: #CFEAFC;*/
+        /*background-color: #CFEAFC;
 	background-color: #EEB0BD;
         box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.5);
-}
+}*/
 
+#placecomment {
+    width: 100%;
+    border: none;
+    height: 350px;
+    overflow: auto;
+    margin: 10px;
+    margin: 0px 45%;
+    padding: 0 10px;
+    /* left: 90%; */
+    left: 63%;
+    /* top: 0; */
+    /* position: relative; */
+    text-align: left;
+    border-radius: 20px;
+    cursor: text;
+    font-size: 16px;
+    color: black;
+    /* float: left; */
+    /* background-color: #CFEAFC; */
+    background-color: #EEB0BD;
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.5);
+}
 
 .errortext2{
         display: none;
@@ -299,24 +380,35 @@ audio:hover {
 #formcomment {
         position: relative;
         width: 50%;
-        height: 500px;
+        height: 450px;
         margin: 20px 20px;
         padding: 20px 10px;
         text-align: center;
 }
-
+/*
 .chat {
-        /*margin: 10px 200px;*/
-        /*margin: -45px 200px;*/
+        /*margin: 10px 200px;
+        /*margin: -45px 200px;
 	margin: 0 185px;
         color: black;
         position: absolute;
         /*left: 52%;
         left: 95%;
-        top: 25px;*/
+        top: 25px;
 	top: -20px;
         font-size: 25px;
 	width: 100%;
+	
+}*/
+.user {
+	margin: 0px 45%;
+    	font-weight: bold;
+    	font-size: 18px;
+    	color: black;
+    	top: 0px;
+    	font-size: 25px;
+    	width: 100%;
+	font-weight: bold;
 }
 #messageprint {
         display: none;
@@ -331,7 +423,7 @@ audio:hover {
 	position: fixed;
 	left: 35%;
 	top: 30%;
-	width: 30%;
+	width: 370px;
 	height: 200px;
 	background-color: white;
 	padding: 15px 20px;
@@ -354,7 +446,7 @@ audio:hover {
 .regstyle {
 	top: 20%;
 }
-
+/*
 .footer {
 	text-align: center;
 	color: black;
@@ -364,6 +456,17 @@ audio:hover {
 	position: relative;
 	top: -80px;
 	display: block;
+}*/
+
+.footer {
+	text-align: center;
+    color: black;
+    font-size: 30px;
+    margin: 0 0;
+    padding: 0 0;
+    position: relative;
+    float: left;
+    left: 40%;
 }
 
 .foot .footer {
@@ -373,6 +476,30 @@ audio:hover {
 	left: 40%;
 } 
 
+.footer a {
+	color: #E6D214;
+}
+
 .footer a:hover {
 	color: red;
 }
+
+@media screen and (max-width: 650px) {
+
+	.regstyle, .logstyle, .auto {
+		left: 0;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	#placecomment , #comment {
+		width: 260px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+        #placecomment , #comment {
+                margin: 10px 10%;
+        }
+}
+

@@ -33,9 +33,14 @@ jQuery(document).ready(function () {
                 	data: formlog.serialize(),
                 	success: function (data) {
 				attention.fadeIn(500).html(data);
-				alllog.css("height","260px");
+				alllog.css("height","210px");
       			}
 		});
+		setTimeout (function () {
+			if (jQuery("#usersesion").html() != null){
+			window.location.replace('http://chat.smart-city.com.ua');
+			}
+		}, 5000);
 	}
 });
 })

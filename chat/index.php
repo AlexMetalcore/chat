@@ -45,8 +45,6 @@ session_start();
 	$id = $_SESSION['id'];
 	$age = $row['age']; 
         if (empty($log) && empty($id)) {
-                //echo '<a href="login_add.php">Пожалуйста, авторизируйтесь</a>'.sleep(1);
-		//header ("Location: login_add.php");
                   echo '<div class="auto"><a href="login_add.php">Пожалуйста, авторизируйтесь</a>&nbsp;&nbsp;<br>редирект через...&nbsp;<span id="timer" long="4">5</span></div>';
                                 header ("Refresh: 5; URL=http://chat.smart-city.com.ua/login_add.php");
         }
@@ -58,12 +56,13 @@ session_start();
                                 		echo $row['age'].'&nbsp;лет';
                                 }
                 }
+
 ?>
 <i><span id="clock"></span></i>
-	<a class="logout" href="logout.php">Выйти  из чата</a>
-			<audio controls loop><source src="/mp3/Pantera - Mouth For War.mp3"></audio>
+	<a class="logout" href="logout.php"><input type="submit" class="submit" value="Выйти  из чата"></a>
+			<!--<audio controls loop><source src="/mp3/Pantera - Mouth For War.mp3"></audio>-->
 	<form id="formcomment" onsubmit="return false">
-		<p style="margin: -10px 0; font-weight: bold; font-size: 18px;">
+<!--		<p style="margin: -10px 0; font-weight: bold; font-size: 18px;">
 			<?php
 			$userssql1 = $connect_db->query("SELECT *FROM users WHERE login='".$_SESSION['login']."' AND age='0';");
 						if ($userssql1->num_rows > 0){
@@ -80,13 +79,43 @@ session_start();
 			<p id="textmessage">
 				<?php include ('message.php'); ?>
 			</p>
-		<i><b class="chat">Чат</b></i>
+		<i><b class="chat">Чат</b></i>-->
+			
+			<p class="user">
+                        <?php
+                        $userssql1 = $connect_db->query("SELECT *FROM users WHERE login='".$_SESSION['login']."' AND age='0';");
+                                                if ($userssql1->num_rows > 0){
+                                                        echo $log;
+                                                }
+                                                else {
+                                                        echo $log.'&nbsp;, возраст&nbsp;'; getage();
+                                                }
+                        ?>
+                	</p><br>
 			<div id="placecomment">
 				<p id="messageprint">Печатают сообщение...</p>
 					<p class="realtimecomment">
 			<?php include ('query.php'); ?>
 					</p>
 			</div>
+			<!--<p style="margin: -10px 0; font-weight: bold; font-size: 18px;">
+                        <?php
+                        $userssql1 = $connect_db->query("SELECT *FROM users WHERE login='".$_SESSION['login']."' AND age='0';");
+                                                if ($userssql1->num_rows > 0){
+                                                        echo $log;
+                                                }
+                                                else {
+                                                        echo $log.'&nbsp;, возраст&nbsp;'; getage();
+                                                }
+                        ?>
+                </p><br>-->
+                <textarea type="text" name="comment" id="comment" value="" placeholder="Введите сообщение..."></textarea><br><br><br>
+                        <p class="errortext2">Напишите сообщение...</p>
+                <!--<input type="submit" value="Отправить" id="send"></br>-->
+                        <p id="textmessage">
+                                <?php include ('message.php'); ?>
+                        </p>
+
 	</form>
 <?php require_once 'footer.php';?>
 </body>
