@@ -32,7 +32,7 @@ if (empty($login) && empty($password)){
 	$result = $connect_db->query($sql);
 if ($result->num_rows == 0 ) {
 
-	echo '<p>Извините, введённого вами логина нету в базе!<br><a href="register_add.php">Зарегистрируйтесь</br></p>';
+	echo 'Извините, введённого вами логина нету в базе!<br><a href="register_add.php">Зарегистрируйтесь</br>';
 }
 
 else if ($result->num_rows > 0){
@@ -42,7 +42,7 @@ else if ($result->num_rows > 0){
 		$_SESSION['login'] = $login;
     		$_SESSION['password'] = $password; 
     		$_SESSION['id'] = $row['id'];
-		sleep(2);
+		sleep(1);
 		echo "Вы успешно авторизировались как&nbsp;<b id='usersesion'>$login</b>!";
 		header ("Refresh: 5; URL=http://chat.smart-city.com.ua");
     	}

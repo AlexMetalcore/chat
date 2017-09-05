@@ -42,16 +42,27 @@ input.submit:hover {
 	background-color: #37B94D;
         box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
 }
+
 .attention {
 	display: none;
     	/*top: 45px;
    	position: relative;*/
-	top: 175px;
+	top: 130px;
 	position: absolute;
     	text-align: center;
     	font-size: 25px;
     	color: red;
 	font-weight: bold;
+}
+
+.attention1 {
+	display: none;
+        top: 200px;
+        position: absolute;
+        text-align: center;
+        font-size: 25px;
+        color: red;
+        font-weight: bold;
 }
 
 #echomessage {
@@ -368,10 +379,11 @@ audio:hover {
         font-size: 22px;
         font-style: oblique;
         position: relative;
-        top: -35px;
+        top: -60px;
         color: #F1221E;
 	margin: 0;
 	padding: 0;
+	left: 43%;
 }
 
 .color {
@@ -501,5 +513,11 @@ audio:hover {
         #placecomment , #comment {
                 margin: 10px 10%;
         }
+}
+.right {
+	position: relative;
+	left: 40%;
+	max-width: 60%;
+	border-bottom: 1px solid black;
 }
 

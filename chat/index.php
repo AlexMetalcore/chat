@@ -60,7 +60,7 @@ session_start();
 ?>
 <i><span id="clock"></span></i>
 	<a class="logout" href="logout.php"><input type="submit" class="submit" value="Выйти  из чата"></a>
-			<!--<audio controls loop><source src="/mp3/Pantera - Mouth For War.mp3"></audio>-->
+			<audio controls loop><source src="/mp3/Руки.mp3"></audio>
 	<form id="formcomment" onsubmit="return false">
 <!--		<p style="margin: -10px 0; font-weight: bold; font-size: 18px;">
 			<?php

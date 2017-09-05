@@ -46,7 +46,8 @@
 		$sql2 = "INSERT INTO `users` ( `login` , `password` , `age` , `sex`) VALUES('".$login."' , '".$password."' , '".$age."' , '".$sex."')";
 		$result2 = $connect_db->query($sql2);
 		if ($result2 === TRUE){
-    			echo '<p>Вы успешно зарегистрировались как&nbsp;'.$login.'!<br><a href="login_add.php">Залогинтесь в чат</a></p></br>';
+    			//echo '<p>Вы успешно зарегистрировались как&nbsp;'.$login.'!<br><a href="login_add.php">Залогинтесь в чат</a></p></br>';
+			echo '<p>Вы успешно зарегистрировались как&nbsp;<b id="reguser">'.$login.'!</b></p>';
     		}
  		else {
     			echo '<p>Вы не зарегистрированы!</p>';

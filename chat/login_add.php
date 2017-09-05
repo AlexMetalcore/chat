@@ -15,7 +15,7 @@
 			<label for="passlog">Ваш пароль:&nbsp;&nbsp;</label><input type="password" maxlength="20" id="passlog" class="log" name="password"><br><br>
 			<input type="submit" value="Войти" class="button btn"><a href="register_add.php" class="register">Регистрация</a>
 		</form>
-	<p class="attention">Заполните поля</p>
+	<p class="attention"></p>
 	</div>
 	<div class="foot">
 	<?php include('footer.php'); ?>
