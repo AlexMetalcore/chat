@@ -61,7 +61,16 @@ session_start();
 <i><span id="clock"></span></i>
 	<a class="logout" href="logout.php"><input type="submit" class="submit" value="Выйти  из чата"></a>
 			<audio controls loop><source src="/mp3/Руки.mp3"></audio>
-	<form id="formcomment" onsubmit="return false">
+	<img alt="" src="" id="preview"/>
+	<form id="avatar" onsubmit="return false" enctype="multipart/form-data">
+	<div class="my_foto">
+                        <input type="file" name="img" id="image"><br>
+                        <input type="submit" value="Загрузить фото" id="send1" disabled>
+			<p class="errormess"></p>
+                        </div>
+	</form>
+	<form id="formcomment" onsubmit="return false" enctype="multipart/form-data">
+		<!--<form id="formcomment" action="../img/upload.php" method="POST" enctype="multipart/form-data">-->
 <!--		<p style="margin: -10px 0; font-weight: bold; font-size: 18px;">
 			<?php
 			$userssql1 = $connect_db->query("SELECT *FROM users WHERE login='".$_SESSION['login']."' AND age='0';");
@@ -80,7 +89,11 @@ session_start();
 				<?php include ('message.php'); ?>
 			</p>
 		<i><b class="chat">Чат</b></i>-->
-			
+<!--			<div class="my_foto">
+			<img alt="foto" src="../img/photo.jpeg" />
+			<input type="file" name="img"><br><br>
+			<button type="button" value="Загрузить" id="send1">Загрузить</button>
+			</div>-->
 			<p class="user">
                         <?php
                         $userssql1 = $connect_db->query("SELECT *FROM users WHERE login='".$_SESSION['login']."' AND age='0';");
@@ -111,7 +124,7 @@ session_start();
                 </p><br>-->
                 <textarea type="text" name="comment" id="comment" value="" placeholder="Введите сообщение..."></textarea><br><br><br>
                         <p class="errortext2">Напишите сообщение...</p>
-                <!--<input type="submit" value="Отправить" id="send"></br>-->
+                <input type="submit" value="Отправить" id="send"></br>
                         <p id="textmessage">
                                 <?php include ('message.php'); ?>
                         </p>

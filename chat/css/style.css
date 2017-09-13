@@ -318,6 +318,9 @@ audio:hover {
     border: none;
     box-shadow: 0px 1px 1px 1px rgba(0 , 0 , 0 , 0.3);
     float: right;
+    position: absolute;
+    top: 441px;;
+    left: 830px;
 
 }
 #send:hover {
@@ -521,3 +524,35 @@ audio:hover {
 	border-bottom: 1px solid black;
 }
 
+.my_foto {
+	position: absolute;
+	/*left: 130px;
+   	top: 90px;*/
+	left: 20px;
+    	top: 80px;
+	z-index: 100000;
+}
+.my_foto input[type="button"] {
+	right: 52px;
+    	position: relative;
+}
+.errormess {
+	position: absolute;
+	width: 200px;
+	height: auto;
+	opacity: 0.8;
+	background-color: black;
+	color: red;
+	border-radius: 20px;
+	display: none;
+}
+
+.img {
+	position: absolute;
+    	left: 160px;
+    	top: 65px;
+	border-radius: 30px;
+}
+#send1 {
+	margin-right: 153px;
+}

@@ -40,7 +40,9 @@ $(document).ready(function () {
 		printmess.fadeOut(300);
 	}, 500);
 }
-}).submit(function() {
+}).submit("#send , #send1" , function() {
+	if ($("#send").val() == "Отправить1") {
+	//if ($("#send").val() == 'Отправить1') {
         var textval = $('#comment').val();
         var text = $('#comment');
         var formNm = $("#formcomment");
@@ -79,55 +81,26 @@ $(document).ready(function () {
                 printmess.fadeOut(300);
         }, 500);
 
-});
-function readImage ( input ) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
- 
-      reader.onload = function (e) {
-        $('#preview').fadeIn(2000).attr('src', e.target.result).addClass('img');
-	$('#image').fadeOut(2000).css('display','none');
-      }
- 
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-	$('#image').change(function(){
-    		readImage(this);
-  	});
-$('#image').click(function () {
-
-if ($('#image').css('display')) {
-                //e.preventDefault();
-        $('#send1:disabled').removeAttr('disabled');
-        }
-});
-
-$("#avatar").submit("submit", function (event) {
-	//if ($('#image').css('display')) {
-		//e.preventDefault();
-	//$('#send1:disabled').removeAttr('disabled');
-	//}
-	//$('#send1')[0].disabled = false;
-	//}
- var form_avatar = $("#avatar");
-	var files = form_avatar, formData = new FormData(files.get(0));
-        var mess = $(".errormess");
-        $.ajax({
+}
+if ($("#send1").val() == "Загрузить") {
+	var formNm = $("#formcomment");
+	var mess = $('#textmessage');
+	$.ajax({
                         type: "POST",
                         url: '../img/upload.php',
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-			data: formData,
+			cache: false,
+            		contentType: false,
+            		processData: false,
+                        data: formNm.serialize(),
                         success: function (data) {
-                                mess.fadeIn(1000).html(data);
-				mess.delay(3000).fadeOut(1000).html(data);
-				$('#send1').prop('disabled' , true);
-				
+				mess.html(data);
+				//mess.delay(2000).fadeOut(1000);
                         }
                 });
-});
+
+//}
+}
+});	
 var realmess = $(".realtimecomment");
 setInterval (function () {
         $.ajax({ 
